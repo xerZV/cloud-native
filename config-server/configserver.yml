@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xerZV/cloud-native-microservices-configs

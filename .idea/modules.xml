@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cloud-native.iml" filepath="$PROJECT_DIR$/.idea/cloud-native.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-server/config-service.iml" filepath="$PROJECT_DIR$/config-server/config-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/reservation-client/reservation-client.iml" filepath="$PROJECT_DIR$/reservation-client/reservation-client.iml" />

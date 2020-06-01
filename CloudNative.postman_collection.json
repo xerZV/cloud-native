@@ -72,7 +72,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "21ab48a0-0f42-4b77-847f-757364d3e570",
+							"value": "930b0785-4bf5-4829-ab88-3bedb615c55a",
 							"type": "string"
 						}
 					]
@@ -102,7 +102,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "21ab48a0-0f42-4b77-847f-757364d3e570",
+							"value": "930b0785-4bf5-4829-ab88-3bedb615c55a",
 							"type": "string"
 						}
 					]
@@ -205,15 +205,34 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8888/reservation-client/default",
+					"raw": "http://localhost:8888/auth-service/default",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8888",
 					"path": [
-						"reservation-client",
+						"auth-service",
 						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ReservationService] Get Message from configService properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"message"
 					]
 				}
 			},

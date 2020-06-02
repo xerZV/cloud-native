@@ -10,7 +10,7 @@ Spring Boot, Spring Cloud and Cloud Foundry
  - [Cloud Foundry CLI](https://github.com/cloudfoundry/cli#installers-and-compressed-binaries) (install it and verify `cf --version`)
  
  
-# How to run
+# How to run with spring cloud CLI
 
 ## 1. Start Eureka
 
@@ -58,6 +58,42 @@ curl --location --request GET 'http://localhost:9999/reservations/names' \
 
 For more request please check the Postman collection.
 
+# How to run locally only with IDE
+
+**Start RabbitMQ:**
+ - Go to `./bin` folder and execute the `rabbitmsq.sh`. It will start a docker image with RabbitMQ instance running on the default port
+
+**Run these applications as spring boot applications in order like this:**
+ 1. config-service 
+ 2. eureka-service
+ 3. hystrix-dashboard
+ 4. auth-service
+ 5. reservation-service
+ 6. reservation-client
  
+Meanwhile you can run dataflow as executing this command in `/dataflow-service` folder:
+```shell script
+java -jar spring-cloud-dataflow-server-2.5.1.RELEASE.jar
+java -jar spring-cloud-skipper-server-2.4.1.RELEASE.jar
+```
+
+And you can access DataFlow dashboard at `http://localhost:9393/dashboard`
+
+Let's say we want to monitor a directory 
+and for each file that appears in that 
+we want to take each line and send the line to the rabbitmq:
+ 1. After that you can click on the button `+Add Application(s)`
+ 2. Click `Bulk import application coordinates from an HTTP URI location.`
+ 3. Then select from below `Stream Apps (RabbitMQ/Maven)`
+ 4. Click `Streams`
+ 5. Click `Create stream`
+ 6. I have created an empty directory in my Desktop called `dataflow`. You can create a dir somewhere and make sure to point its location in the command below
+ 7. Paste this in the text area `GetFilesFromADir: file --directory=C:\\Users\\your-user\\Desktop\\dataflow --filename-pattern=*.txt --mode=lines | toUpperCase: transform --expression=payload.toUpperCase() > :reservations`
+ 8. Click `Create Stream(s)` and give it a proper name.
+ 9. Deploy the stream. 
+ 10. Create a txt file in the directory and write some names each on a new line.
+ 11. Verify HTTP GET `http://localhost:9999/reservations/names` (with Authentication)
+ 
+Also you can use cURL or Postman collection.
 
 
